@@ -13,8 +13,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  metadataBase: new URL("https://techtr.dev"),
+  title: {
+    default: "Ömer Özbay — Türkiye'nin Teknoloji ve Yapay Zeka Blogu",
+    template: "%s — Ömer Özbay",
+  },
+  description:
+    "Yapay zeka, NVIDIA, MCP, SEO, yazılım geliştirme ve Türkiye teknoloji ekosistemi üzerine Türkçe analizler.",
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Ömer Özbay",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -24,10 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="tr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-slate-950">
+        {children}
+      </body>
     </html>
   );
 }
